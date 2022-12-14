@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+    <title>Посты</title>
+</head>
+<body>
+    <h1 class = "title">Новости</h1>
+    {% for post in news %}
+    <div class = "post">
+        <div class = "name text">Заголовок:{{ post.title }}</div>
+        <div class = "url1 text">URL:<a href = '{{ post.url }}' class = "url" target="_blank">{{ post.url }}</a></div>
+        <div class = "content text">Контент:{{ post.content }}</div>
+        <div class = "pub text">Опубликовано:{{ post.published }}</div>
+        <div class = "category text">Категория:{{ post.category }}</div>
+        <a href="http://127.0.0.1:8000/edit/{{ post.id }}" class ="btn">Изменить пост</a>
+
+    </div>
+    {% endfor %}
+    <a href="http://127.0.0.1:8000/" class ="btn">Добавить пост</a>
+</body>
+</html>

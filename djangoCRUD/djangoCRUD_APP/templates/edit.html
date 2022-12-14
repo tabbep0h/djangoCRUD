@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <h1 class="title">Изменение статьи</h1>
+    <form action="#" method="POST" class="form">
+        {% csrf_token %}
+        <input type="text" class = "input" name = "title" value="{{ post.title }}">
+        <input type="url" class = "input" name = "url" value="{{ post.url }}">
+        <input type="text" class = "input" name = "content" value="{{ post.content }}">
+        <input type="checkbox" class = "input" name = "published">
+        <select type="text" class = "input" name = "category" value="{{ post.category }}">
+            <option value="Наука">Наука</option>
+            <option value="Юмор">Юмор</option>
+            <option value="Блог">Блог</option>
+            <option value="Путешествие">Путешествие</option>
+        <input type="submit" class="btn"/>
+    </form>
+</form>
+</body>
+</html>
